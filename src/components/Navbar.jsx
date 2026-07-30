@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +19,21 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <a href="#" className="logo">
-          <Image src="/GNOL.png" alt="Globimex Logo" width={150} height={40} className="logo-img" />
+          <Image src="/GNOLw.png" alt="Globimex Logo" width={220} height={60} className="logo-img" />
         </a>
-        <div className="nav-links">
-          <a href="#servicios" className="nav-link">Servicios</a>
-          <a href="#nosotros" className="nav-link">Nosotros</a>
-          <a href="#contacto" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }}>Contacto</a>
+        
+        <button 
+          className="mobile-menu-btn" 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
+
+        <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <a href="#servicios" className="nav-link" onClick={() => setMenuOpen(false)}>Servicios</a>
+          <a href="#nosotros" className="nav-link" onClick={() => setMenuOpen(false)}>Nosotros</a>
+          <a href="#contacto" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }} onClick={() => setMenuOpen(false)}>Contacto</a>
         </div>
       </div>
     </nav>

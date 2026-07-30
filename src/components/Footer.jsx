@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-col">
-            <Image src="/GNOL.png" alt="Globimex Logo" width={150} height={40} style={{ objectFit: 'contain', marginBottom: '1.5rem' }} />
+            <Image src="/GNOLw.png" alt="Globimex Logo" width={220} height={60} style={{ objectFit: 'contain', marginBottom: '1.5rem' }} />
             <p style={{ maxWidth: '300px' }}>
               Tu socio de confianza en proyectos de construcción, renovación y diseño integral.
             </p>
@@ -34,6 +34,11 @@ export default function Footer() {
         
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Globimex. Todos los derechos reservados.</p>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>Réalisée par Microdidact</p>
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+            <a href="/aviso-legal" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', fontSize: '0.8rem' }} onMouseOver={e => e.target.style.color='var(--accent-color)'} onMouseOut={e => e.target.style.color='var(--text-muted)'}>Aviso Legal</a>
+            <a href="/politica-privacidad" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', fontSize: '0.8rem' }} onMouseOver={e => e.target.style.color='var(--accent-color)'} onMouseOut={e => e.target.style.color='var(--text-muted)'}>Política de Privacidad</a>
+          </div>
         </div>
       </div>
     </footer>
