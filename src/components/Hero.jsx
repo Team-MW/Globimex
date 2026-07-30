@@ -2,19 +2,43 @@
 
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    '/images/hero1.webp',
+    '/images/hero2.webp',
+    '/images/hero3.png'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="hero">
-      <img
-        src="/hero_bg_new.png"
-        alt="Construcción Premium"
-        className="hero-bg"
-      />
+      <AnimatePresence>
+        <motion.img
+          key={currentImageIndex}
+          src={images[currentImageIndex]}
+          alt="Construcción Premium"
+          className="hero-bg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        />
+      </AnimatePresence>
       <div className="hero-overlay"></div>
       
       <div className="container" style={{ zIndex: 1, position: 'relative' }}>
