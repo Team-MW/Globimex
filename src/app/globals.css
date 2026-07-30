@@ -1,12 +1,12 @@
 :root {
-  --primary-color: #b3b8c2; /* Gris métallique central */
-  --secondary-color: #c4c9cd; /* Gris métallique plus clair */
-  --accent-color: #1a1a1a;
-  --accent-hover: #333333;
+  --primary-color: #ffffff; /* Blanc pur */
+  --secondary-color: #f8f9fa; /* Gris extrêmement clair */
+  --accent-color: #d4af37; /* Or luxueux conservé */
+  --accent-hover: #b5952f;
   --text-main: #111111;
-  --text-muted: #3a3f44;
-  --glass-bg: rgba(179, 184, 194, 0.5);
-  --glass-border: rgba(26, 26, 26, 0.15);
+  --text-muted: #555555;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -18,23 +18,11 @@
 }
 
 body {
-  background: radial-gradient(circle at center, #d8dcdb 0%, #a4a8aa 50%, #6e7375 100%);
-  background-attachment: fixed;
+  background-color: var(--primary-color);
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
-}
-
-/* Texture de bruit SVG pour simuler le grain du béton/métal du logo */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: 9999;
 }
 
 a {
@@ -42,15 +30,12 @@ a {
   text-decoration: none;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 400;
-  color: rgba(20, 20, 20, 0.9);
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  /* Effet "Letterpress" ou gravé (debossed) typique du logo GNOL */
-  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6), 0px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -91,25 +76,53 @@ h2 {
 
 .btn-primary {
   background-color: var(--accent-color);
-  color: #ffffff;
-  box-shadow: none;
+  color: #111;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--text-main);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(26, 26, 26, 0.05);
+  background-color: rgba(212, 175, 55, 0.1);
   transform: translateY(-2px);
+}
+
+/* Link classes to replace inline events */
+.btn-services-outline {
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  transition: all 0.3s;
+}
+.btn-services-outline:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.footer-link, .footer-legal-link {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.footer-legal-link {
+  font-size: 0.8rem;
+}
+.footer-link:hover, .footer-legal-link:hover {
+  color: var(--accent-color);
 }
 
 /* Containers */
@@ -139,18 +152,19 @@ h2 {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  padding: 1.5rem 0;
   z-index: 1000;
   transition: var(--transition);
-  padding: 1rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .navbar.scrolled {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
-  padding: 0.5rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .navbar-container {
@@ -203,19 +217,22 @@ h2 {
   z-index: -2;
 }
 
-/* Ajuste del overlay para hero tipo GNOL (gris métallique transparent) */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(211, 215, 223, 0.95) 0%, rgba(156, 163, 175, 0.7) 100%);
+  background: rgba(0, 0, 0, 0.6);
   z-index: -1;
 }
 
 .hero-content {
   max-width: 650px;
+}
+
+.hero-content h1 {
+  color: #ffffff;
 }
 
 .hero-subtitle {
@@ -228,7 +245,7 @@ h2 {
 }
 
 .hero-description {
-  color: var(--text-muted);
+  color: #f0f0f0;
   font-size: 1.15rem;
   margin: 1.5rem 0 2.5rem;
   line-height: 1.8;
@@ -240,13 +257,66 @@ h2 {
 }
 
 /* Services Section */
+.services-header-layout {
+  margin-bottom: 2rem;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
 }
 
+/* Features Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 4rem;
+}
+.feature-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .feature-col:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -1rem;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), rgba(0,0,0,0.1), transparent);
+  }
+}
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+.feature-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  min-height: 50px;
+}
+.feature-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
 .service-card {
   padding: 2.5rem 2rem;
   transition: var(--transition);
@@ -266,26 +336,14 @@ h2 {
 }
 
 .neo-panel {
-  padding: 3rem;
-  background-color: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 
-    6px 6px 15px rgba(0, 0, 0, 0.15), 
-    -6px -6px 15px rgba(255, 255, 255, 0.6);
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .neo-panel-inset {
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 
-    inset 4px 4px 10px rgba(0, 0, 0, 0.15), 
-    inset -4px -4px 10px rgba(255, 255, 255, 0.6);
+  background-color: var(--primary-color);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .service-card:hover {

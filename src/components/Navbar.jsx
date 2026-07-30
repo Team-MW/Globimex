@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,9 +19,16 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <a href="#" className="logo">
-          <Image src="/GNOLw.png" alt="Globimex Logo" width={220} height={60} className="logo-img" />
-        </a>
+        <Link href="/" className="navbar-logo">
+          <Image 
+            src="/GNOL.png" 
+            alt="Globimex Logo" 
+            width={180} 
+            height={50} 
+            style={{ objectFit: 'contain' }}
+            priority
+          />
+        </Link>
         
         <button 
           className="mobile-menu-btn" 

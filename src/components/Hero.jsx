@@ -4,12 +4,10 @@ import { ArrowRight } from 'lucide-react';
 export default function Hero() {
   return (
     <section className="hero">
-      <Image
-        src="/hero_bg.png"
+      <img
+        src="/hero_bg_new.png"
         alt="Construcción Premium"
-        fill
         className="hero-bg"
-        priority
       />
       <div className="hero-overlay"></div>
       

@@ -4,7 +4,8 @@ import {
   Leaf, 
   Paintbrush, 
   Trees, 
-  ClipboardCheck 
+  ClipboardCheck,
+  ArrowRight
 } from 'lucide-react';
 
 export default function Services() {
@@ -49,21 +50,40 @@ export default function Services() {
 
   return (
     <section id="servicios" className="section container">
-      <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-        <h2 style={{ color: 'var(--text-main)' }}>Nuestros Servicios Integrales</h2>
-        <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-          Cubrimos todas las fases de tu proyecto de construcción o renovación, garantizando resultados excepcionales.
+      
+      <div className="services-header-layout">
+        <span style={{ letterSpacing: '3px', fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--accent-color)' }}>— Nuestros Servicios</span>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', margin: '1rem 0 2rem 0', color: 'var(--text-main)', textTransform: 'none', fontFamily: 'serif' }}>
+          Servicios de <span style={{ color: 'var(--accent-color)' }}>reformas en Málaga</span>
+        </h2>
+        <p style={{ color: 'var(--text-main)', maxWidth: '800px', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '4rem' }}>
+          Cubrimos las reformas más habituales para viviendas, comunidades y negocios locales. 
+          Cada proyecto se estudia antes de empezar para evitar improvisaciones y ajustar la ejecución a las necesidades reales del espacio. 
+          Desde una reforma de baño hasta la rehabilitación completa de una fachada. Mismo nivel de exigencia en cada proyecto.
         </p>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem', marginBottom: '3rem', borderBottom: '1px solid rgba(212,175,55,0.2)', paddingBottom: '2rem' }}>
+          <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', margin: 0, textTransform: 'none', fontFamily: 'serif' }}>Todo lo que <span style={{ color: 'var(--accent-color)' }}>transformamos...</span></h3>
+          <a href="#contacto" className="btn-services-outline">
+            Consultar servicios de reforma <ArrowRight size={16} />
+          </a>
+        </div>
       </div>
 
       <div className="services-grid">
         {servicesList.map((srv) => (
-          <div key={srv.id} className="service-card glass-panel">
-            <div className="service-icon">
-              {srv.icon}
+          <div key={srv.id} className="service-card neo-panel" style={{ padding: 0, overflow: 'hidden', backgroundColor: 'var(--secondary-color)', border: '1px solid rgba(255,255,255,0.05)' }}>
+            <div style={{ padding: '2.5rem 2rem' }}>
+              <div style={{ 
+                width: '50px', height: '50px', borderRadius: '50%', 
+                display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                marginBottom: '1.5rem', border: '1px solid rgba(212,175,55,0.3)', color: 'var(--accent-color)'
+              }}>
+                {srv.icon}
+              </div>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', textTransform: 'none', color: 'var(--text-main)' }}>{srv.title}</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>{srv.desc}</p>
             </div>
-            <h3 className="service-title">{srv.title}</h3>
-            <p className="service-desc">{srv.desc}</p>
           </div>
         ))}
       </div>
