@@ -1,6 +1,7 @@
 "use client";
 
 import { MessageCircle, MapPin, FileText, Calendar, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Features() {
   const features = [
@@ -40,7 +41,14 @@ export default function Features() {
     <section className="section container">
       <div className="features-grid">
         {features.map((f, i) => (
-          <div key={i} className="feature-col">
+          <motion.div 
+            key={i} 
+            className="feature-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
             <div className="feature-icon" style={{ 
               width: '50px', height: '50px', borderRadius: '50%', 
               display: 'flex', alignItems: 'center', justifyContent: 'center', 
@@ -51,14 +59,19 @@ export default function Features() {
             </div>
             <h3 className="feature-title" style={{ color: 'var(--accent-color)', fontSize: '1.2rem', marginBottom: '1rem', minHeight: '50px' }}>{f.title}</h3>
             <p className="feature-desc" style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '2rem' }}>{f.desc}</p>
-            <div className="feature-btn" style={{ 
-              width: '100%', textAlign: 'center', fontSize: '0.9rem', fontWeight: 600,
-              padding: '0.8rem', borderRadius: '30px', 
-              backgroundColor: 'var(--accent-color)', color: '#111' 
-            }}>
+            <motion.div 
+              className="feature-btn" 
+              style={{ 
+                width: '100%', textAlign: 'center', fontSize: '0.9rem', fontWeight: 600,
+                padding: '0.8rem', borderRadius: '30px', 
+                backgroundColor: 'var(--accent-color)', color: '#111', cursor: 'pointer' 
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               {f.btnText}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
     </section>

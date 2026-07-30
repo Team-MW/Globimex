@@ -1,3 +1,5 @@
+"use client";
+
 import { 
   Building2, 
   Wrench, 
@@ -7,6 +9,7 @@ import {
   ClipboardCheck,
   ArrowRight
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Services() {
   const servicesList = [
@@ -71,8 +74,17 @@ export default function Services() {
       </div>
 
       <div className="services-grid">
-        {servicesList.map((srv) => (
-          <div key={srv.id} className="service-card neo-panel" style={{ padding: 0, overflow: 'hidden', backgroundColor: 'var(--secondary-color)', border: '1px solid rgba(255,255,255,0.05)' }}>
+        {servicesList.map((srv, i) => (
+          <motion.div 
+            key={srv.id} 
+            className="service-card neo-panel" 
+            style={{ padding: 0, overflow: 'hidden', backgroundColor: 'var(--secondary-color)', border: '1px solid rgba(255,255,255,0.05)', cursor: 'pointer' }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: i * 0.15 }}
+            whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+          >
             <div style={{ padding: '2.5rem 2rem' }}>
               <div style={{ 
                 width: '50px', height: '50px', borderRadius: '50%', 
@@ -84,7 +96,7 @@ export default function Services() {
               <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', textTransform: 'none', color: 'var(--text-main)' }}>{srv.title}</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>{srv.desc}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

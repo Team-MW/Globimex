@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-col">
-            <Image src="/GNOL.png" alt="Globimex Logo" width={220} height={60} style={{ objectFit: 'contain', marginBottom: '1.5rem' }} />
+            <Image src="/GNOLw.png" alt="Globimex Logo" width={220} height={60} style={{ objectFit: 'contain', marginBottom: '1.5rem' }} />
             <p style={{ maxWidth: '300px' }}>
               Tu socio de confianza en proyectos de construcción, renovación y diseño integral.
             </p>
@@ -36,8 +36,8 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} Globimex. Todos los derechos reservados.</p>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>Réalisée par Microdidact</p>
           <div style={{ marginTop: '1rem', display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-            <a href="/aviso-legal" className="footer-legal-link">Aviso Legal</a>
-            <a href="/politica-privacidad" className="footer-legal-link">Política de Privacidad</a>
+            <a href="/mentions-legales" className="footer-legal-link">Mentions Légales</a>
+            <a href="/politique-confidentialite" className="footer-legal-link">Politique de Confidentialité</a>
           </div>
         </div>
       </div>

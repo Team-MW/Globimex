@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="container navbar-container">
         <Link href="/" className="navbar-logo">
           <Image 
-            src="/GNOL.png" 
+            src="/GNOLw.png" 
             alt="Globimex Logo" 
             width={180} 
             height={50} 
