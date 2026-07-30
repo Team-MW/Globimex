@@ -1,28 +1,30 @@
 "use client";
 
 import { useState } from 'react';
-
-const faqs = [
-  {
-    question: "¿Qué tipo de proyectos abordan?",
-    answer: "Nos encargamos de todo tipo de proyectos, desde pequeñas reformas de interiorismo hasta construcción de obra nueva, rehabilitación energética y acondicionamiento de exteriores. Ningún proyecto es demasiado complejo para nuestro equipo."
-  },
-  {
-    question: "¿Gestionan las licencias y permisos de obra?",
-    answer: "Sí, nuestro equipo técnico (arquitectos e ingenieros) se encarga de todo el proceso burocrático, desde el diseño inicial y proyectos técnicos, hasta la solicitud de licencias en los ayuntamientos."
-  },
-  {
-    question: "¿Trabajan con presupuestos cerrados?",
-    answer: "Absolutamente. Realizamos un estudio previo muy exhaustivo para poder ofrecer un presupuesto cerrado y detallado. Esto garantiza que no haya sorpresas durante la ejecución de la obra."
-  },
-  {
-    question: "¿Ofrecen garantía sobre los trabajos realizados?",
-    answer: "Sí, todos nuestros trabajos cuentan con las garantías que exige la ley para la construcción y reformas, asegurando la durabilidad y calidad de los materiales y la ejecución."
-  }
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
+  const { t } = useLanguage();
+
+  const faqs = [
+    {
+      question: t('faq1_q'),
+      answer: t('faq1_a')
+    },
+    {
+      question: t('faq2_q'),
+      answer: t('faq2_a')
+    },
+    {
+      question: t('faq3_q'),
+      answer: t('faq3_a')
+    },
+    {
+      question: t('faq4_q'),
+      answer: t('faq4_a')
+    }
+  ];
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -31,7 +33,7 @@ export default function Faq() {
   return (
     <section id="faq" className="section container">
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h2>Preguntas Frecuentes</h2>
+        <h2>{t('faq_title')}</h2>
       </div>
       
       <div className="neo-panel" style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>

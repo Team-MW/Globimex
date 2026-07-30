@@ -1,8 +1,14 @@
+"use client";
+
+import { useLanguage } from '@/context/LanguageContext';
+
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="nosotros" className="section container">
       <div className="neo-panel" style={{ textAlign: 'center' }}>
-        <h2 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>La Excelencia en Construcción</h2>
+        <h2 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>{t('about_title')}</h2>
         <div style={{
           width: '80px',
           height: '4px',
@@ -18,10 +24,7 @@ export default function About() {
           margin: '0 auto',
           textShadow: '0 1px 1px rgba(255,255,255,0.7)' 
         }}>
-          En <strong>Globimex</strong>, transformamos espacios con precisión arquitectónica y calidad inquebrantable. 
-          Nuestra metodología de trabajo combina técnicas tradicionales de obra con innovación industrial, 
-          garantizando resultados robustos, estéticos y duraderos. Nos especializamos en proyectos 
-          complejos donde la exigencia técnica y el detalle marcan la diferencia absoluta.
+          {t('about_desc1')}<strong>{t('about_desc_strong')}</strong>{t('about_desc2')}
         </p>
       </div>
     </section>

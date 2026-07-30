@@ -4,7 +4,10 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="hero">
       <img
@@ -27,14 +30,14 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Excelencia en Construcción
+            {t('hero_subtitle')}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Edificando el futuro con precisión y calidad.
+            {t('hero_title')}
           </motion.h1>
           <motion.p 
             className="hero-description"
@@ -42,8 +45,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
           >
-            Especialistas en obra gruesa, obra fina, renovación energética, interiorismo y paisajismo. 
-            Soluciones integrales desde los cimientos hasta la entrega llave en mano.
+            {t('hero_desc')}
           </motion.p>
           <motion.div 
             className="hero-buttons"
@@ -52,10 +54,10 @@ export default function Hero() {
             transition={{ delay: 0.9, duration: 0.8 }}
           >
             <a href="#servicios" className="btn btn-primary">
-              Nuestros Servicios <ArrowRight size={20} />
+              {t('hero_btn_services')} <ArrowRight size={20} />
             </a>
             <a href="#contacto" className="btn btn-secondary">
-              Solicitar Presupuesto
+              {t('hero_btn_contact')}
             </a>
           </motion.div>
         </motion.div>

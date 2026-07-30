@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ContactForm() {
   const iframeRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Escuchar los mensajes del iframe de Jotform para ajustar la altura dinámicamente
@@ -30,9 +32,9 @@ export default function ContactForm() {
   return (
     <section id="presupuesto" className="section container">
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h2 style={{ color: 'var(--text-main)' }}>Solicita tu Presupuesto</h2>
+        <h2 style={{ color: 'var(--text-main)' }}>{t('contact_title')}</h2>
         <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-          Completa el siguiente formulario para que podamos entender mejor tus necesidades y ofrecerte una solución a medida.
+          {t('contact_desc')}
         </p>
       </div>
       

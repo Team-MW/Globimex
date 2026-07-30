@@ -3,37 +3,41 @@
 import { MessageCircle, MapPin, FileText, Calendar, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 export default function Features() {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: <MessageCircle size={28} />,
-      title: "Contacto por WhatsApp",
-      desc: "Nos escribes, te responde una persona real en menos de 2 horas. Sin bots ni formularios.",
-      btnText: "Respuesta en menos de 2h"
+      title: t('feat1_title'),
+      desc: t('feat1_desc'),
+      btnText: t('feat1_btn')
     },
     {
       icon: <MapPin size={28} />,
-      title: "Visita técnica gratuita",
-      desc: "Venimos a ver el espacio. Sin coste, sin compromiso.",
-      btnText: "Visita técnica sin coste alguno"
+      title: t('feat2_title'),
+      desc: t('feat2_desc'),
+      btnText: t('feat2_btn')
     },
     {
       icon: <FileText size={28} />,
-      title: "Presupuesto cerrado",
-      desc: "Detallado con partidas desglosadas. Lo que aparece es lo que pagas. En 24 horas.",
-      btnText: "Sin sorpresas en tu factura"
+      title: t('feat3_title'),
+      desc: t('feat3_desc'),
+      btnText: t('feat3_btn')
     },
     {
       icon: <Calendar size={28} />,
-      title: "Fecha firmada en contrato",
-      desc: "Inicio, fin y responsable de obra por escrito. Sabes cuándo termina antes de empezar.",
-      btnText: "Calendario garantizado"
+      title: t('feat4_title'),
+      desc: t('feat4_desc'),
+      btnText: t('feat4_btn')
     },
     {
       icon: <Award size={28} />,
-      title: "Entrega con garantía",
-      desc: "Limpieza diaria, revisión final contigo y garantía por escrito sobre toda la ejecución.",
-      btnText: "Garantía en materiales"
+      title: t('feat5_title'),
+      desc: t('feat5_desc'),
+      btnText: t('feat5_btn')
     }
   ];
 

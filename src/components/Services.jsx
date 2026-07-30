@@ -11,42 +11,46 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 export default function Services() {
+  const { t } = useLanguage();
+
   const servicesList = [
     {
       id: 1,
-      title: "Obra Gruesa y Demolición",
-      desc: "Terrassement, fundaciones, albañilería general, construcción nueva, demolición y desamiantado.",
+      title: t('srv1_title'),
+      desc: t('srv1_desc'),
       icon: <Building2 size={24} />
     },
     {
       id: 2,
-      title: "Obra Fina Especializada",
-      desc: "Plomería, electricidad, HVAC, carpintería, aislamiento, revestimientos, pintura y restauración.",
+      title: t('srv2_title'),
+      desc: t('srv2_desc'),
       icon: <Wrench size={24} />
     },
     {
       id: 3,
-      title: "Renovación Energética",
-      desc: "Mejora del rendimiento energético: aislamiento avanzado y actualización de sistemas de calefacción.",
+      title: t('srv3_title'),
+      desc: t('srv3_desc'),
       icon: <Leaf size={24} />
     },
     {
       id: 4,
-      title: "Interiorismo y Decoración",
-      desc: "Acondicionamiento y diseño de espacios para residencias, locales comerciales e industriales.",
+      title: t('srv4_title'),
+      desc: t('srv4_desc'),
       icon: <Paintbrush size={24} />
     },
     {
       id: 5,
-      title: "Exteriores y Paisajismo",
-      desc: "Diseño exterior, áreas verdes, mantenimiento paisajístico, vallados y movimientos de tierra.",
+      title: t('srv5_title'),
+      desc: t('srv5_desc'),
       icon: <Trees size={24} />
     },
     {
       id: 6,
-      title: "Dirección de Obra",
-      desc: "Gestión integral, coordinación, pilotaje y supervisión experta de proyectos y chantiers.",
+      title: t('srv6_title'),
+      desc: t('srv6_desc'),
       icon: <ClipboardCheck size={24} />
     }
   ];
@@ -55,20 +59,18 @@ export default function Services() {
     <section id="servicios" className="section container">
       
       <div className="services-header-layout">
-        <span style={{ letterSpacing: '3px', fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--accent-color)' }}>— Nuestros Servicios</span>
+        <span style={{ letterSpacing: '3px', fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--accent-color)' }}>{t('services_tag')}</span>
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', margin: '1rem 0 2rem 0', color: 'var(--text-main)', textTransform: 'none', fontFamily: 'serif' }}>
-          Servicios de <span style={{ color: 'var(--accent-color)' }}>reformas en Málaga</span>
+          {t('services_title_part1')}<span style={{ color: 'var(--accent-color)' }}>{t('services_title_part2')}</span>
         </h2>
         <p style={{ color: 'var(--text-main)', maxWidth: '800px', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '4rem' }}>
-          Cubrimos las reformas más habituales para viviendas, comunidades y negocios locales. 
-          Cada proyecto se estudia antes de empezar para evitar improvisaciones y ajustar la ejecución a las necesidades reales del espacio. 
-          Desde una reforma de baño hasta la rehabilitación completa de una fachada. Mismo nivel de exigencia en cada proyecto.
+          {t('services_desc')}
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem', marginBottom: '3rem', borderBottom: '1px solid rgba(212,175,55,0.2)', paddingBottom: '2rem' }}>
-          <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', margin: 0, textTransform: 'none', fontFamily: 'serif' }}>Todo lo que <span style={{ color: 'var(--accent-color)' }}>transformamos...</span></h3>
+          <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', margin: 0, textTransform: 'none', fontFamily: 'serif' }}>{t('services_subtitle_part1')}<span style={{ color: 'var(--accent-color)' }}>{t('services_subtitle_part2')}</span></h3>
           <a href="#contacto" className="btn-services-outline">
-            Consultar servicios de reforma <ArrowRight size={16} />
+            {t('services_btn')} <ArrowRight size={16} />
           </a>
         </div>
       </div>
